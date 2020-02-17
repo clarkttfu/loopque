@@ -1,5 +1,12 @@
 # LoopQueue
 
+<p align="center">
+  <a href="https://www.npmjs.com/package/loopque"><img src="https://img.shields.io/npm/dm/loopque.svg?style=flat-square" alt="NPM downloads"></a>
+  <a href="https://www.npmjs.com/package/loopque"><img src="https://img.shields.io/npm/v/loopque.svg?style=flat-square" alt="NPM version"></a>
+  <a href="https://travis-ci.org/clarkttfu/loopque"><img src="https://travis-ci.org/clarkttfu/loopque.svg" alt="Build version"></a>
+  <a href="https://coveralls.io/github/clarkttfu/loopque?branch=master"><img src="https://coveralls.io/repos/github/clarkttfu/loopque/badge.svg?branch=master" alt="Build version"></a>  
+  <a href="/LICENSE"><img src="https://img.shields.io/npm/l/loopque.svg?style=flat-square" alt="License"></a>
+</p>
 
 
 ## API
