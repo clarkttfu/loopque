@@ -167,9 +167,10 @@ describe('Test LoopQueue with custom hash', () => {
     should(queue.length).equal(1)
     should(queue.push(ob2)).equal(1)
     should(queue.length).equal(1)
-    const item = queue._map.get(1).item
+    const item = queue.get(1)
     should(item).not.equal(ob1)
     should(item).equal(ob2)
+    should(queue.get(2)).be.undefined()
   })
 
   it('remove by custom hash', () => {

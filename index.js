@@ -24,6 +24,13 @@ module.exports = class LoopQueue {
     return this._map.size
   }
 
+  get (hash) {
+    const map = this._map
+    if (map.has(hash)) {
+      return map.get(hash).item
+    }
+  }
+
   remove (hash) {
     return this._map.delete(hash)
   }

@@ -27,16 +27,23 @@ Property to retrieve current length of the queue.
 
 Add item to the end of queue.
 
-### shift()
+### get(id)
 
-Remove the first item in the queue and return it.
+- id: by default, id is the same primitive value or object reference;
+  when queue is constructed with a hash function, id is whatever that function returns
+
+Retrieve item in the queue via the given hash id, just like `Map`.
   
 ### remove(id): boolean
 
 - id: by default, id is the same primitive value or object reference;
   when queue is constructed with a hash function, id is whatever that function returns
 
-Remove an item by the given id.
+Remove an item by the given hash id.
+
+### shift()
+
+Remove the first item in the queue and return it.
 
 ### next(remove: (item: any) => boolean | boolean)
 
