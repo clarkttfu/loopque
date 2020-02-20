@@ -27,16 +27,16 @@ Property to retrieve current length of the queue.
 
 Add item to the end of queue.
 
+### values()
+
+Return item iterator, same as [Symbol.iterator]
+
 ### get(id)
 
 - id: by default, id is the same primitive value or object reference;
   when queue is constructed with a hash function, id is whatever that function returns
 
 Retrieve item in the queue via the given hash id, just like `Map`.
-
-### values()
-
-Returns item iterator, same as [Symbol.iterator]
 
 ### remove(id): boolean
 

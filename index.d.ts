@@ -21,6 +21,12 @@ declare class LoopQueue {
   push(item): any
 
   /**
+   * Same as [Symbol.iterator]
+   * @return item iterator
+   */
+  values()
+
+  /**
    * @param id by default, id is the same primitive value or object reference;
    *   when queue is constructed with a hash function, id is whatever that
    *   function returns
@@ -28,11 +34,6 @@ declare class LoopQueue {
    */
   get(id)
 
-  /**
-   * Same as [Symbol.iterator]
-   * @return item iterator
-   */
-  values()
 
   /**
    * @param id by default, id is the same primitive value or object reference;
