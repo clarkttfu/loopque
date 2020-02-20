@@ -33,13 +33,21 @@ Add item to the end of queue.
   when queue is constructed with a hash function, id is whatever that function returns
 
 Retrieve item in the queue via the given hash id, just like `Map`.
-  
+
+### values()
+
+Returns item iterator, same as [Symbol.iterator]
+
 ### remove(id): boolean
 
 - id: by default, id is the same primitive value or object reference;
   when queue is constructed with a hash function, id is whatever that function returns
 
 Remove an item by the given hash id.
+
+### clear()
+
+Clear the entire queue.
 
 ### shift()
 

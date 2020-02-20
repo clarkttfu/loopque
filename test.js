@@ -1,5 +1,5 @@
 const should = require('should')
-const Queue = require('.')
+const Queue = require('./index')
 
 describe('Test LoopQueue constructor', function () {
   it('constructs without args', () => {
@@ -124,7 +124,7 @@ describe('Test LoopQueue.next', () => {
   })
 })
 
-describe('Test LoopQueue .push .remove', () => {
+describe('Test LoopQueue .push .remove .clear', () => {
   it('push return object reference hash', () => {
     const queue = new Queue()
     const obj = {}
@@ -155,6 +155,14 @@ describe('Test LoopQueue .push .remove', () => {
     queue.push(5)
     should(queue.remove(2)).be.false()
     should(queue.remove(5)).be.true()
+  })
+
+  it('support to clear entire queue', () => {
+    const queue = new Queue()
+    queue.push(1)
+    queue.push(2)
+    queue.clear()
+    queue.length.should.equal(0)
   })
 })
 
@@ -202,5 +210,41 @@ describe('Test LoopQueue.shift', () => {
     queue.push(1)
     queue.push(2) // force shift of 1
     should(queue.shift()).equal(2)
+  })
+})
+
+describe('Test LoopQueue iterator', () => {
+  it('is iterable', () => {
+    const queue = new Queue()
+    queue.push(1)
+    queue.push(null)
+    let counter = 0
+    for (const item of new Queue()) {
+      switch (++counter) {
+        case '1': item.should.equal(1); break
+        case '2': should(item).be.null(); break
+      }
+    }
+  })
+
+  it('is iterable event if empty', done => {
+    for (const item of new Queue()) {
+      done('should not call' + item)
+    }
+    done()
+  })
+
+  it('support multiple concurrent iterators', () => {
+    const queue = new Queue()
+    queue.push(1)
+    queue.push(2)
+
+    const it1 = queue[Symbol.iterator]()
+    const it2 = queue.values()
+
+    it1.next()
+    it1.next()
+    it2.next().done.should.be.false()
+    it1.next().done.should.be.true()
   })
 })

@@ -1,6 +1,6 @@
 {
   "name": "loopque",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Tiny loop queue based on Map",
   "main": "index.js",
   "scripts": {

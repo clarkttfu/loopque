@@ -31,8 +31,20 @@ module.exports = class LoopQueue {
     }
   }
 
+  [Symbol.iterator] () {
+    return makeIter(this._map)
+  }
+
+  values () {
+    return makeIter(this._map)
+  }
+
   remove (hash) {
     return this._map.delete(hash)
+  }
+
+  clear () {
+    this._map.clear()
   }
 
   push (item) {
@@ -84,5 +96,20 @@ module.exports = class LoopQueue {
       this._map.delete(next.value)
     }
     return value.item
+  }
+}
+
+function makeIter (map) {
+  if (map.size > 0) {
+    const internalIt = map.values()
+    return {
+      next: () => {
+        const { value, done } = internalIt.next()
+        return { value: value && value.item, done }
+      }
+    }
+  }
+  return {
+    next: () => ({ value: undefined, done: true })
   }
 }
